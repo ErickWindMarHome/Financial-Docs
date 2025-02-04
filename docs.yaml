@@ -30,20 +30,6 @@ paths:
       tags:
         - Customer
   /sales-order:
-    post:
-      operationId: SalesOrderController_create
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateSalesOrderDto'
-      responses:
-        '201':
-          description: ''
-      tags:
-        - SalesOrder
     put:
       operationId: SalesOrderController_update
       parameters: []
