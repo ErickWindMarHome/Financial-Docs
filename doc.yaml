@@ -1,0 +1,232 @@
+openapi: 3.0.0
+paths:
+  /customer:
+    post:
+      operationId: CustomerController_createOther
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomerDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Customer
+    put:
+      operationId: CustomerController_update
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Customer
+  /sales-order:
+    post:
+      operationId: SalesOrderController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSalesOrderDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - SalesOrder
+    put:
+      operationId: SalesOrderController_update
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSalesOrderDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - SalesOrder
+info:
+  title: Financial API
+  description: Aqui encontraras toda la documentacion de el Financial API
+  version: 0.0.2
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    CreateCustomerDto:
+      type: object
+      properties:
+        zohoId:
+          type: string
+        amount:
+          type: number
+        firstName:
+          type: string
+        lastName:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        zipCode:
+          type: string
+        dealType:
+          type: number
+        solarCaseNumber:
+          type: string
+          nullable: true
+        sunnovaId:
+          type: string
+        financeCompany:
+          type: number
+        systemSize:
+          type: number
+        batteryQTY:
+          type: number
+        batteryType:
+          type: number
+        salesRepId:
+          type: string
+        sunnovaSystemSize:
+          type: number
+      required:
+        - zohoId
+        - amount
+        - firstName
+        - lastName
+        - address
+        - city
+        - zipCode
+        - dealType
+        - solarCaseNumber
+        - sunnovaId
+        - financeCompany
+        - systemSize
+        - batteryQTY
+        - batteryType
+        - salesRepId
+        - sunnovaSystemSize
+    UpdateCustomerDto:
+      type: object
+      properties:
+        customerId:
+          type: number
+        zohoId:
+          type: string
+        amount:
+          type: number
+        firstName:
+          type: string
+        lastName:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        zipCode:
+          type: string
+        dealType:
+          type: number
+        solarCaseNumber:
+          type: string
+          nullable: true
+        sunnovaId:
+          type: string
+        financeCompany:
+          type: number
+        systemSize:
+          type: number
+        batteryQTY:
+          type: number
+        batteryType:
+          type: number
+        salesRepId:
+          type: string
+        sunnovaSystemSize:
+          type: number
+      required:
+        - customerId
+    CreateSalesOrderDto:
+      type: object
+      properties:
+        zohoId:
+          type: string
+        customerId:
+          type: number
+        amount:
+          type: number
+      required:
+        - zohoId
+        - customerId
+        - amount
+    UpdateSalesOrderDto:
+      type: object
+      properties:
+        salesOrderId:
+          type: number
+        customerId:
+          type: number
+        amount:
+          type: number
+        solarCaseNumber:
+          type: string
+          nullable: true
+        brigada:
+          type: string
+        installationStartDate:
+          format: date-time
+          type: string
+        installationCompletedDate:
+          format: date-time
+          type: string
+        roofingStartDate:
+          format: date-time
+          type: string
+        roofingCompletedDate:
+          format: date-time
+          type: string
+        panelQTY:
+          type: number
+        sunnovaId:
+          type: string
+        financeCompany:
+          type: number
+        batteryType:
+          type: number
+        batteryQTY:
+          type: number
+        systemSize:
+          type: number
+        sunnovaSystemSize:
+          type: number
+        zohoId:
+          type: string
+      required:
+        - salesOrderId
+        - solarCaseNumber
+        - brigada
+        - installationStartDate
+        - installationCompletedDate
+        - roofingStartDate
+        - roofingCompletedDate
+        - panelQTY
+        - sunnovaId
+        - financeCompany
+        - batteryType
+        - batteryQTY
+        - systemSize
+        - sunnovaSystemSize
